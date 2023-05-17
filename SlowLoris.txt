@@ -1,0 +1,31 @@
+package de.entwicklerheld.scalechallenge;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+
+class Scale {
+    static List<Integer> getMasses(Integer weight, List<Integer> allMasses) {
+
+         int size = allMasses.size();
+         List<Integer> neededMasses = new ArrayList<Integer>(size);
+         int currentMass = 0;
+         int remainingweight = weight;         
+
+        for (int i= (allMasses.size()-1); i>=0; i--){
+
+            currentMass = allMasses.get(i);
+
+            if (remainingweight >= currentMass) {
+                remainingweight = (remainingweight - currentMass);
+                neededMasses.add(currentMass);
+            }            
+
+        }
+        
+        neededMasses.sort(null);
+
+        return neededMasses;
+    }
+}
